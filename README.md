@@ -2,6 +2,15 @@
 
 herstory의 공항 여정(출국 전 준비 → 공항 내 서비스 → 귀국 후)을 안내하는 Next.js 웹 애플리케이션입니다.
 
+<p align="center">
+  <img src="docs/demo-scan.gif" width="300" alt="여정이 없는 상태에서 탑승권을 스캔해 실시간 여정 카드를 등록하는 흐름" />
+</p>
+
+<p align="center">
+  <sub>탑승권을 스캔해 여정을 등록하는 흐름. 저장된 여정 ID가 서버에서 사라진 경우에도<br />
+  화면이 멈추지 않고 이 첫 화면(탑승권 스캔 안내)으로 복귀합니다.</sub>
+</p>
+
 ## 기술 스택
 
 - [Next.js 16](https://nextjs.org/) (App Router)
@@ -44,6 +53,7 @@ npm run dev
 | `npm run build` | 프로덕션 빌드                |
 | `npm run start` | 빌드된 앱 실행               |
 | `npm run lint`  | ESLint 검사                  |
+| `npm test`      | Vitest 테스트 실행           |
 
 ## 프로젝트 구조
 
@@ -67,3 +77,31 @@ api/                    API 클라이언트
 ```
 
 라우트 경로는 하드코딩하지 않고 `constants/routes.ts`의 `ROUTES` 객체를 통해 참조합니다.
+
+## 테스트
+
+[Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/)를 사용합니다.
+
+```bash
+npm test          # 1회 실행
+npm run test:watch
+```
+
+실패 상황 처리처럼 화면에서 재현하기 번거로운 로직을 우선 덮었습니다.
+
+- `features/auth/pages/__tests__/resolveLoginErrorMessage.test.ts`
+  응답을 받지 못한 경우(네트워크·타임아웃)와 서버가 오류를 내려준 경우가
+  서로 다른 문구로 안내되는지 검증합니다. 같은 메시지라도 `status` 유무에 따라
+  결과가 달라져야 합니다.
+- `hooks/__tests__/useClearStaleJourney.test.tsx`
+  여정 조회가 실패하면 로컬에 저장된 `journeyId`를 비워, 사용자가 탑승권 스캔
+  화면에서 다시 시작할 수 있는지 검증합니다.
+
+## 기여
+
+전체 190커밋 중 108커밋(57%)을 작성했습니다.
+
+- 인증 화면(로그인 / 회원가입 / 비밀번호 찾기) 구현
+- 공통 로딩·에러 컴포넌트 설계 — `WakingScreen`(17개 화면), `ErrorState`(14개 화면)에서 사용
+- 서버 상태가 무효화됐을 때 로컬 상태를 복구하는 `useClearStaleJourney` 훅 작성
+- 아이콘만으로 구성된 하단 네비게이션 등에 `aria-label` 부여
