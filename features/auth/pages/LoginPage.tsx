@@ -14,7 +14,7 @@ import type { Member } from "@/types/api.types";
 
 // 네트워크 타임아웃 등으로 응답 status가 없는 경우 실제 비밀번호 오류와
 // 똑같은 문구가 뜨면 혼란스러우니 구분해서 안내합니다.
-function resolveLoginErrorMessage(error: ApiError | null): string {
+export function resolveLoginErrorMessage(error: ApiError | null): string {
   if (!error) return "";
   if (error.status == null) {
     return "일시적인 오류로 로그인에 실패했습니다. 잠시 후 다시 시도해주세요.";
