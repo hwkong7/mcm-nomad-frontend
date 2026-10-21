@@ -194,6 +194,7 @@ npm run test:watch
 - 🎬 [전체 시연 영상 (YouTube)](https://youtu.be/BJ0BpAu07PA)
 - 💻 [GitHub Repository](https://github.com/hwkong7/mcm-nomad-frontend)
 - 🌷 [개인 포트폴리오](https://hwkong7-portfolio.vercel.app/)
+- 📱 [프로젝트 사용](https://herstory-frontend.vercel.app/login)
 
 ---
 
