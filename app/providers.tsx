@@ -2,12 +2,14 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
 import { PhoneShell } from "@/components/layout/PhoneShell";
 import { useAuthStore } from "@/store/authStore";
 import { useJourneyStore } from "@/store/journeyStore";
 import { useSettingsStore } from "@/store/settingsStore";
 
 export function Providers({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -28,7 +30,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PhoneShell>{children}</PhoneShell>
+      {pathname === "/showcase" ? children : <PhoneShell>{children}</PhoneShell>}
     </QueryClientProvider>
   );
 }

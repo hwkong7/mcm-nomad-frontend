@@ -70,6 +70,9 @@ export default function ShowcasePage() {
           <a className={styles.primary} href="#demo">
             Explore project ↗
           </a>
+          <Link className={styles.secondary} href="/login">
+            Open app ↗
+          </Link>
           <a
             className={styles.secondary}
             href="https://github.com/hwkong7/mcm-nomad-frontend"
