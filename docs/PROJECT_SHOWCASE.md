@@ -21,9 +21,15 @@
   <img src="./docs/demo-scan.gif" width="360" alt="탑승권 스캔과 여정 복구 시연" />
 </p>
 
-> 위 이미지는 저장소에 기존부터 포함된 실제 동작 GIF입니다. 전체 시연 MP4는 공개 가능한 영상 호스팅 URL을 확보한 뒤 아래에 연결하세요.
+> 위 이미지는 저장소에 기존부터 포함된 실제 동작 GIF입니다. 
 
-**🎬 Full demo:** `영상 링크 추가 예정`  
+## 🎬 프로젝트 시연 영상
+
+[![MCM Nomad Passport 시연 영상](https://img.youtube.com/vi/BJ0BpAu07PA/hqdefault.jpg)](https://youtu.be/BJ0BpAu07PA)
+
+> 이미지를 클릭하면 YouTube에서 전체 시연 영상을 볼 수 있습니다.
+
+**🎬 Full demo:** [YouTube 시연 영상 보기](https://youtu.be/BJ0BpAu07PA)
 **🌐 Showcase:** 배포 후 `https://<your-domain>/showcase` 주소로 교체
 
 ## ✦ My Contributions
